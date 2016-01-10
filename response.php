@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__.'/function.php';
 
 require __DIR__.'/autoload.php';
 $name=$_POST['name'];
