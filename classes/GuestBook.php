@@ -10,13 +10,13 @@ class GuestBook{
         $this->open = fopen(__DIR__ . '/../library.txt', 'a');
     }
     public function append($name,$title,$article) {
-        fwrite($this->file, "\n");
-        fwrite($this->file, $this->name=$name);
-        fwrite($this->file, "\n");
-        fwrite($this->file, $this->title=$title);
-        fwrite($this->file, "\n");
-        fwrite($this->file, $this->article=$article);
-        fclose($this->file);
+        fwrite($this->open, "\n");
+        fwrite($this->open, $this->name=$name);
+        fwrite($this->open, "\n");
+        fwrite($this->open, $this->title=$title);
+        fwrite($this->open, "\n");
+        fwrite($this->open, $this->article=$article);
+        fclose($this->open);
     }
 
     public function getData(){
