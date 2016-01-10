@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="Описание сайта">
 	<meta name="keywords" content="Ключевые слова">
-	<?php require __DIR__.'/function.php'; ?>
-	<?php require __DIR__.'/classes/GuestBook.php'; ?>
+
+	<?php require __DIR__.'/autoload.php'; ?>
 	<link rel="shortcut icon" href="" type="img/x-icon">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
