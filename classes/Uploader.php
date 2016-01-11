@@ -40,14 +40,14 @@ class Uploader{
                 if ($this->isUploaded() == true) {
                     $this->res = move_uploaded_file($_FILES[$this->name_file]['tmp_name'], $this->newName);
                     $this->files = basename($_FILES[$this->name_file]['name']);
-                        if (in_array($this->img_name, $this->array) != true) {
+                    if (in_array($this->img_name, $this->array) != true) {
                              return $this->files;
-                            }else {
-                                die('Переименуйте файл. <a href="/index.php">Попробовать другой файл?</a>');
-                            }
-                                } else {
-                                    return false;
-                                }
+                        }else {
+                            die('Переименуйте файл. <a href="/index.php">Попробовать другой файл?</a>');
+                        }
+                    } else {
+                        return false;
+                    }
                 } else {
                     die('Запрещённый тип файла. <a href="/index.php">Попробовать другой файл?</a>');
                 }
