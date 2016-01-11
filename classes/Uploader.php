@@ -23,7 +23,7 @@ class Uploader{
     }
 
     public function isUploaded($name_file){
-        $this->name_file = $name_file;
+
         if (is_uploaded_file($name_file['tmp_name'])==true){
             return true;
         }else {
@@ -32,7 +32,7 @@ class Uploader{
     }
 
     public function upload($uploaddir,$name_file){
-        $this->name_file = $name_file;
+
         $this->uploaddir = $uploaddir;
         $this->newName = $uploaddir .'/'.basename($name_file['tmp_name']);
         $this->img_name = basename($name_file['tmp_name']);
