@@ -16,7 +16,6 @@ class GuestBook{
         fwrite($this->open, $this->title=$title);
         fwrite($this->open, "\n");
         fwrite($this->open, $this->article=$article);
-        fclose($this->open);
     }
 
     public function getData(){
