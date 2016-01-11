@@ -21,7 +21,7 @@ $uploaddir = __DIR__."/img";
 
 if(!empty($_FILES['image']['name'])){
    $uploads = new Uploader($name_file);
-   $uploads->upload($uploaddir,$name_file);
+   $uploads->upload($uploaddir);
 }
 
 

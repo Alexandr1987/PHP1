@@ -22,27 +22,25 @@ class Uploader{
         $this->name_file = $name_file;
     }
 
-    public function isUploaded($name_file){
-
-        if (is_uploaded_file($name_file['tmp_name'])==true){
+    public function isUploaded(){
+        if (is_uploaded_file($this->name_file['tmp_name'])==true){
             return true;
         }else {
             return false;
         }
     }
 
-    public function upload($uploaddir,$name_file){
-
+    public function upload($uploaddir){
         $this->uploaddir = $uploaddir;
-        $this->newName = $uploaddir .'/'.basename($name_file['tmp_name']);
-        $this->img_name = basename($name_file['tmp_name']);
+        $this->newName = $uploaddir .'/'.basename($this->name_file['tmp_name']);
+        $this->img_name = basename($this->name_file['tmp_name']);
         $this->array = scandir($uploaddir);
         $this->types = ['image/jpeg', 'image/png'];
         if (in_array($this->img_name, $this->array) != true) {
-            if (in_array($name_file['type'], $this->types)) {
-                if ($this->isUploaded($name_file) == true) {
-                    $this->res = move_uploaded_file($name_file['tmp_name'], $this->newName);
-                    $this->files = basename($name_file['name']);
+            if (in_array($this->name_file['type'], $this->types)) {
+                if ($this->isUploaded() == true) {
+                    $this->res = move_uploaded_file($this->name_file['tmp_name'], $this->newName);
+                    $this->files = basename($this->name_file['name']);
                     return $this->files;
                 } else {
                     return false;
