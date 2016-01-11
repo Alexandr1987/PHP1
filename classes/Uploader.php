@@ -19,11 +19,11 @@ class Uploader{
     public $types;
 
     public function __construct(){
-        $this->name_file=$_FILES['image']['tmp_name'];
+        $this->name_file=$_FILES['image'];
     }
 
     public function isUploaded(){
-        if (is_uploaded_file($this->name_file)==true){
+        if (is_uploaded_file($_FILES['image']['tmp_name'])==true){
             return true;
         }else {
             return false;
@@ -32,8 +32,8 @@ class Uploader{
 
     public function upload($uploaddir){
         $this->uploaddir = $uploaddir;
-        $this->newName = $uploaddir .'/'.basename($this->name_file);
-        $this->img_name = basename($this->name_file);
+        $this->newName = $uploaddir .'/'.basename($_FILES['image']['tmp_name']);
+        $this->img_name = basename($_FILES['image']['tmp_name']);
         $this->array = scandir($uploaddir);
         $this->types = ['image/jpeg', 'image/png'];
         if (in_array($this->img_name, $this->array) != true) {
