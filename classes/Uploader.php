@@ -18,8 +18,8 @@ class Uploader{
     public $array;
     public $types;
 
-    public function __construct(){
-        $this->name_file=$_FILES['image'];
+    public function __construct($name_file){
+        return $name_file = $this->name_file;
     }
 
     public function isUploaded(){

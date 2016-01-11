@@ -19,8 +19,7 @@ class GuestBook{
     }
 
     public function getData(){
-        $this->file = file(__DIR__ . '/../library.txt');
-        return $this->file;
+        return file(__DIR__ . '/../library.txt');
     }
 
 
