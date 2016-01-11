@@ -32,23 +32,24 @@ class Uploader{
 
     public function upload($uploaddir){
         $this->uploaddir = $uploaddir;
-        $this->newName = $uploaddir .'/'.basename($_FILES[$this->name_file]['tmp_name']);
-        $this->img_name = basename($_FILES[$this->name_file]['tmp_name']);
+        $this->newName = $uploaddir .'/'.basename($_FILES[$this->name_file]['name']);
+        $this->img_name = basename($_FILES[$this->name_file]['name']);
         $this->array = scandir($uploaddir);
         $this->types = ['image/jpeg', 'image/png'];
-        if (in_array($this->img_name, $this->array) != true) {
             if (in_array($_FILES[$this->name_file]['type'], $this->types)) {
                 if ($this->isUploaded() == true) {
                     $this->res = move_uploaded_file($_FILES[$this->name_file]['tmp_name'], $this->newName);
                     $this->files = basename($_FILES[$this->name_file]['name']);
-                    return $this->files;
+                        if (in_array($this->img_name, $this->array) != true) {
+                             return $this->files;
+                            }else {
+                                die('Переименуйте файл. <a href="/index.php">Попробовать другой файл?</a>');
+                            }
+                                } else {
+                                    return false;
+                                }
                 } else {
-                    return false;
+                    die('Запрещённый тип файла. <a href="/index.php">Попробовать другой файл?</a>');
                 }
-            } else {
-                die('Запрещённый тип файла. <a href="/index.php">Попробовать другой файл?</a>');
-            }
-        } else{
-            return false;
-        }
+
 }}
