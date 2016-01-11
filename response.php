@@ -5,7 +5,7 @@ require __DIR__.'/autoload.php';
 $name=$_POST['name'];
 $title=$_POST['title'];
 $article = $_POST['new_article'];
-$name_file = $_FILES['image'];
+$name_file = 'image';
 
 
 //upload_article($file,$name,$title,$article);
