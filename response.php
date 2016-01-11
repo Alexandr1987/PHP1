@@ -5,7 +5,7 @@ require __DIR__.'/autoload.php';
 $name=$_POST['name'];
 $title=$_POST['title'];
 $article = $_POST['new_article'];
-$name_file = 'image';
+
 
 
 //upload_article($file,$name,$title,$article);
@@ -15,15 +15,6 @@ if (!empty($name) && !empty($title) && !empty($article)) {
         $app->append($name,$title,$article);
     }
 }
-
-/*upload img*/
-$uploaddir = __DIR__."/img";
-
-if(!empty($_FILES['image']['name'])){
-   $uploads = new Uploader($name_file);
-   $uploads->upload($uploaddir);
-}
-
 
 
 

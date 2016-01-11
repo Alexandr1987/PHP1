@@ -43,7 +43,7 @@
 						</div>
 					</div>
 				</form>
-				<form class="form-horizontal" action="response.php" role="form" style="padding-top:40px;" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" action="img_upload.php" role="form" style="padding-top:40px;" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="exampleInputFile">File input</label>
 						<input type="file" id="exampleInputFile" name="image">
