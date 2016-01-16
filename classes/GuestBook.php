@@ -1,26 +1,28 @@
 <?php
 
 class GuestBook{
-    public $name;
-    public $title;
+
     public $article;
-    public $file;
-    public $open;
-    public function __construct(){
-        $this->open = fopen(__DIR__ . '/../library.txt', 'a');
+    protected $path;
+    protected $data;
+    public function __construct($path){
+        $this->path = $path;
+        $this->data=file($path);
     }
-    public function append($name,$title,$article) {
-        fwrite($this->open, "\n");
-        fwrite($this->open, $this->name=$name);
-        fwrite($this->open, "\n");
-        fwrite($this->open, $this->title=$title);
-        fwrite($this->open, "\n");
-        fwrite($this->open, $this->article=$article);
-    }
+
+
 
     public function getData(){
-        return file(__DIR__ . '/../library.txt');
+        return $this->data;
     }
 
+    public function append($text) {
+        $this->data[] = $text;
+
+    }
+
+    public function save(){
+        file_put_contents($this->path,$this->data);
+    }
 
 }

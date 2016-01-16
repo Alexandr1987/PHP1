@@ -17,11 +17,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-6">
-				<form class="form-horizontal" action="response.php" role="form" style="padding-top:40px;" id="form" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" action="" role="form" style="padding-top:40px;" id="form" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Автор</label>
 						<div class="col-sm-10">
-							<input type="text" name="name" class="form-control"  placeholder="Имя"></div>
+							<input type="text" name="autor" class="form-control"  placeholder="Имя"></div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Название</label>
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Статья</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="3" name="new_article" id="statya" placeholder="Статья"></textarea>
+                            <textarea class="form-control" rows="3" name="text" id="statya" placeholder="Статья"></textarea>
                         </div>
                     </div>
 
@@ -61,23 +61,29 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-6">
-				<pre id="debug" class="text-center">
-					<?php $arr = new GuestBook();?>
-					<?php $file = $arr->getData();?>
-                    <?php foreach ($file as $string):?>
-                        <p style="text-align:center;"><?php echo $string;?></p>
-                    <?php endforeach;?>
-				</pre>
+
+				<?php $book = new News();?>
+				<?php if(!empty($_POST['title']) && !empty($_POST['text']) && !empty($_POST['autor'])):?>
+					<?php $book->insert($_POST['title'],$_POST['text'],$_POST['autor']);?>
+				<? endif; ?>
+
+				<?php $view = new View(); ?>
+				<?php $data = $book->findAll(); ?>
+				<?php if($_GET['id_news']==''):?>
+					<?php $view->display('index.php',$data);?>
+				<?php endif;?>
+
+				<?php if($_GET['id_news']!=''):?>
+					<?php $view->display('newsone.php',$data);?>
+				<?php endif;?>
+
+				<?php if($_GET['id_news_delete']!=''):?>
+					<?php $book->deleteById($_GET['id_news_delete']);?>
+				<?php endif;?>
+
 			</div>
 		</div>
-		<div class="row">
-			<?php $images = scandir(__DIR__.'/img');?>
-			<?php foreach ($images as $img):?>
-				<?php if($img != '.' && $img != '..'):?>
-				<img width="100" src="img/<?php echo $img;?>">
-				<?php endif;?>
-			<?php endforeach;?>
-		</div>
+
 	</div>
 
 </body>
