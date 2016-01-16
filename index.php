@@ -70,7 +70,7 @@
 				<?php $view = new View(); ?>
 				<?php $data = $book->findAll(); ?>
 				<?php if($_GET['id_news']==''):?>
-					<?php $view->display('index.php',$data);?>
+					<?php $view->display('news.php',$data);?>
 				<?php endif;?>
 
 				<?php if($_GET['id_news']!=''):?>
@@ -79,6 +79,7 @@
 
 				<?php if($_GET['id_news_delete']!=''):?>
 					<?php $book->deleteById($_GET['id_news_delete']);?>
+
 				<?php endif;?>
 
 			</div>
