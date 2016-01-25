@@ -1,10 +1,10 @@
 <?php
 
 require_once __DIR__.'/../autoload.php';
-class News
+class About
 
 {
-    const TABLE = 'news';
+    const TABLE = 'PHP1HW';
 
     public $text;
     public $title;
@@ -23,7 +23,7 @@ class News
     public function updateById($text,$id){
         $this->id = $id;
         $dbh = new Connection();
-        $sql = "UPDATE news SET text='$text' WHERE id='$id'";
+        $sql = "UPDATE PHP1HW SET text='$text' WHERE id='$id'";
         $sth = $dbh->prepare($sql);
         $sth->execute();
 
@@ -33,18 +33,17 @@ class News
         $this->id = $id;
         $this->text = $text;
         $dbh = new Connection();
-        $sql = "UPDATE news SET text='$text' WHERE id='$id'";
+        $sql = "UPDATE PHP1HW SET text='$text' WHERE id='$id'";
         $sth = $dbh->prepare($sql);
         $sth->execute();
 
     }
 
-    public function insert($title,$text,$avtor){
-        $this->title = $title;
+    public function insert($content='',$text=''){
+        $this->content = $content;
         $this->text = $text;
-        $this->avtor = $avtor;
         $dbh = new Connection();
-        $sql = "INSERT INTO news(title, text, autor) VALUES ('" . $title . "','" . $text . "','" . $avtor . "')";
+        $sql = "INSERT INTO PHP1HW(content, text) VALUES ('" . $content . "','" . $text . "')";
         $sth = $dbh->prepare($sql);
         $sth->execute();
 
