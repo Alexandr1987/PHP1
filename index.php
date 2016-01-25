@@ -8,59 +8,6 @@
 <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
 <?php require __DIR__.'/autoload.php'; ?>
-	<style>
-		.menu li a {
-			color:red;
-			right:-1000px;
-			position:relative;
-		}
-		.in_about h2{
-			position:relative;
-			bottom:-1000px;
-			opacity:0;
-		}
-		.in_about p{
-			position:relative;
-			bottom:-1000px;
-			opacity:0;
-		}
-
-		.bag{
-			opacity:0;
-		}
-		.footer1{
-			background:#fff;
-			position:relative;
-			left:-1500px;
-		}
-		.footer2{
-			opacity:0;
-			background:#fff;
-		}
-		.about{
-			position:relative;
-			left:-1000px;
-			opacity:0;
-		}
-		.in_portfolio_content{
-			transform: scale(0.2);
-			opacity:0.2;
-		}
-
-		.portfolio{
-			position:relative;
-			left:-1000px;
-			opacity:0;
-		}
-
-
-		.logo{
-			position:relative;
-
-
-		}
-
-	</style>
 
 </head>
 <body style="background:#fff;">
@@ -106,9 +53,6 @@
 					<?php $view->display('portfolio.php',$data);?>
 				<?php endif;?>
 
-				<?php if($_GET['id_news_delete']!=''):?>
-					<?php $book->deleteById($_GET['id_news_delete']);?>
-				<?php endif;?>
 
 	<footer>
 		<div class="footer_blog">

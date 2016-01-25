@@ -12,7 +12,7 @@ class Team
 
     public static function findAll(){
         $dbh = new Connection();
-        $sql = 'SELECT * FROM ' . self::TABLE . ' ORDER BY id DESC';
+        $sql = 'SELECT * FROM ' . self::TABLE . ' ORDER BY id ASC';
         $sth = $dbh->prepare($sql);
         $sth->execute();
         return $sth->fetchAll(PDO::FETCH_CLASS, self::class);
@@ -29,22 +29,21 @@ class Team
 
     }
 
-    public function updateText($text,$id){
+    public function deleteById($id){
         $this->id = $id;
-        $this->text = $text;
         $dbh = new Connection();
-        $sql = "UPDATE news SET text='$text' WHERE id='$id'";
+        $sql = 'DELETE FROM ' . self::TABLE .' WHERE id='.$id;
         $sth = $dbh->prepare($sql);
         $sth->execute();
 
     }
 
-    public function insert($title,$text,$avtor){
-        $this->title = $title;
-        $this->text = $text;
-        $this->avtor = $avtor;
+    public function insert($name,$position,$description){
+        $this->name = $name;
+        $this->position = $position;
+        $this->description = $description;
         $dbh = new Connection();
-        $sql = "INSERT INTO news(title, text, autor) VALUES ('" . $title . "','" . $text . "','" . $avtor . "')";
+        $sql = "INSERT INTO team (name, position, about) VALUES ('" . $name . "','" . $position . "','" . $description . "')";
         $sth = $dbh->prepare($sql);
         $sth->execute();
 

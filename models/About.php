@@ -5,10 +5,15 @@ class About
 
 {
     const TABLE = 'PHP1HW';
-
+    protected $dbh;
     public $text;
     public $title;
     public $autor;
+    public $content;
+
+    public function __construct(){
+        $this->dbh= new Connection();
+    }
 
     public static function findAll(){
         $dbh = new Connection();
@@ -20,24 +25,6 @@ class About
 
 
 
-    public function updateById($text,$id){
-        $this->id = $id;
-        $dbh = new Connection();
-        $sql = "UPDATE PHP1HW SET text='$text' WHERE id='$id'";
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
-
-    }
-
-    public function updateText($text,$id){
-        $this->id = $id;
-        $this->text = $text;
-        $dbh = new Connection();
-        $sql = "UPDATE PHP1HW SET text='$text' WHERE id='$id'";
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
-
-    }
 
     public function insert($content='',$text=''){
         $this->content = $content;
