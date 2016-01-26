@@ -31,7 +31,7 @@
         <a href="#">
             <div class="wrap_img_portfolio">
                 <div class="wrap_img_bg">
-                    <img src="<?php echo $value->img; ?>" alt="">
+                    <img src="<?php echo $value->img; ?>" width="300" height="260" alt="">
                 </div>
             </div>
             <h3><?php echo $value->title; ?></h3>

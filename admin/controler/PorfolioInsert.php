@@ -1,10 +1,10 @@
 <?php
 require __DIR__.'/../../autoload.php';
 
-$name = $_POST['name'];
-$position = $_POST['position'];
+$title = $_POST['name'];
+$img = $_FILES['image'];
 $description = $_POST['description'];
-$file = $_POST['image'];
+
 
 $uploaddir = __DIR__."/../../img";
 
@@ -14,9 +14,13 @@ $uploaddir = __DIR__."/../../img";
 
 $name_file = 'image';
 
-if(!empty($_FILES['image']['name'])){
+$img ='/../../img/'.$_FILES['image']['name'];
+
+if(!empty($img) && !empty($title) && !empty($description)){
     $uploads = new Uploader($name_file);
     $uploads->upload($uploaddir);
+    $portfolio=new Portfolio();
+    $portfolio->insert($title,$img,$description);
 }
 
 

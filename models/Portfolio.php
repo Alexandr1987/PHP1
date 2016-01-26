@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../autoload.php';
 class Portfolio
-    extends About
+    extends Models
 
 {
     const TABLE = 'portfolio';
@@ -11,46 +11,28 @@ class Portfolio
     public $title;
     public $autor;
 
-    public static function findAll(){
-        $dbh = new Connection();
-        $sql = 'SELECT * FROM ' . self::TABLE . ' ORDER BY id ASC';
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
 
-
-
-    public function updateById($text,$id){
+    public function updateById($title,$img,$description,$id){
         $this->id = $id;
-        $dbh = new Connection();
-        $sql = "UPDATE news SET text='$text' WHERE id='$id'";
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
-
-    }
-
-    public function updateText($text,$id){
-        $this->id = $id;
-        $this->text = $text;
-        $dbh = new Connection();
-        $sql = "UPDATE news SET text='$text' WHERE id='$id'";
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
-
-    }
-
-    public function insert($title,$text,$avtor){
         $this->title = $title;
-        $this->text = $text;
-        $this->avtor = $avtor;
-        $dbh = new Connection();
-        $sql = "INSERT INTO news(title, text, autor) VALUES ('" . $title . "','" . $text . "','" . $avtor . "')";
-        $sth = $dbh->prepare($sql);
+        $this->img = $img;
+        $this->description = $description;
+        $sql = "UPDATE portfolio SET title='$title', img='$img', description='$description' WHERE id='$id'";
+        $sth = $this->dbh->prepare($sql);
         $sth->execute();
 
     }
 
+    public function insert($title,$img,$description){
+        $this->title = $title;
+        $this->img = $img;
+        $this->description = $description;
+        $dbh = new Connection();
+        $sql = "INSERT INTO portfolio (title, img, description) VALUES ('" . $title . "','" . $img . "','" . $description . "')";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+
+    }
 
 
 }

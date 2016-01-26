@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Александр
+ * User: РђР»РµРєСЃР°РЅРґСЂ
  * Date: 10.01.2016
  * Time: 16:53
  */
@@ -43,13 +43,13 @@ class Uploader{
                 if (in_array($this->img_name, $this->array) != true) {
                     return $this->files;
                 }else {
-                    die('Переименуйте файл. <a href="/index.php">Попробовать другой файл?</a>');
+                    die('РџРµСЂРµРёРјРµРЅСѓР№С‚Рµ С„Р°Р№Р». <a href="/index.php">РџРѕРїСЂРѕР±РѕРІР°С‚СЊ РґСЂСѓРіРѕР№ С„Р°Р№Р»?</a>');
                 }
             } else {
                 return false;
             }
         } else {
-            die('Запрещённый тип файла. <a href="/index.php">Попробовать другой файл?</a>');
+            die('Р—Р°РїСЂРµС‰С‘РЅРЅС‹Р№ С‚РёРї С„Р°Р№Р»Р°. <a href="/index.php">РџРѕРїСЂРѕР±РѕРІР°С‚СЊ РґСЂСѓРіРѕР№ С„Р°Р№Р»?</a>');
         }
 
     }}

@@ -28,7 +28,7 @@
 <div class="team_foto">
     <div class="in_team_foto">
         <?php foreach ($team as $member):?>
-        <div class="bag bag<?php echo $member->id; ?>">
+        <div class="bag bag1">
             <a class="partner" href="#" alt="foto">
                 <img src="img/<?php echo $member->foto; ?>" alt="">
                 <h4><?php echo $member->name; ?><span>/ <?php echo $member->position; ?></span></h4>

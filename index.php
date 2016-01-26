@@ -33,23 +33,19 @@
 				<?php $view = new View(); ?>
 
 				<?php if($_GET['id']=='index' || $_GET['id']==''):?>
-					<?php $book = new About();?>
-					<?php $data = $book->findAll(); ?>
-					<?php $myteam = new Team(); ?>
-					<?php $team = $myteam->findAll();?>
+					<?php $data = About::findAll(); ?>
+					<?php $team = Team::findAll();?>
 					<?php $view->display('index.php',$data,$team);?>
 				<?php endif;?>
 
 
 				<?php if($_GET['id']=='contact'):?>
-					<?php $contacts = new Contact(); ?>
-					<?php $data = $contacts->findAll();?>
+					<?php $data = Contact::findAll();?>
 					<?php $view->display('contact.php',$data);?>
 				<?php endif;?>
 
 				<?php if($_GET['id']=='portfolio'):?>
-					<?php $portfolio = new Portfolio();?>
-					<?php $data = $portfolio->findAll();?>
+					<?php $data = Portfolio::findAll();?>
 					<?php $view->display('portfolio.php',$data);?>
 				<?php endif;?>
 
@@ -125,7 +121,7 @@
 <script>
 	$(document).ready(function() {
 		var logo_top = $('.logo');
-		var menu = $('.menu ul li a');
+		var menu = $('.menu');
 		var about = $('.about');
 		var tl = new TimelineMax();
 		tl.to(logo_top, 3, {rotation:-1440}),
