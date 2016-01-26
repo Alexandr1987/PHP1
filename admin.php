@@ -97,8 +97,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div>
-                                <?php $about=new About();?>
-                                <?php $firstAbout= $about->findAll();?>
+
+                                <?php $firstAbout = About::findAll();?>
                                 <?php foreach($firstAbout as $value):?>
                                 <br>
                                 <?php echo $value->text;?><br>
@@ -114,8 +114,8 @@
                                 <?php endforeach;?>
                             </div>
                             <div>
-                                <?php $portfolio=new Portfolio();?>
-                                <?php $works= $portfolio->findAll();?>
+
+                                <?php $works= Portfolio::findAll();?>
                                 <?php foreach($works as $value):?>
                                 <div class="in_portfolio_content in_portfolio_content<?php echo $value->id; ?>" style="width:200px;float:left;margin:8px;">
                                         <div class="wrap_img_portfolio">
@@ -161,8 +161,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <?php $team=new Team();?>
-                            <?php $firstTeam= $team->findAll();?>
+                            <?php $firstTeam= Team::findAll();?>
                             <?php foreach($firstTeam as $value):?>
                             <div style="width:200px;float:left;margin:8px;">
                                 <?php echo $value->name;?><br>
