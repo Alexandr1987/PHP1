@@ -69,7 +69,7 @@
         <h2>Coments(23)</h2>
         <?php foreach ($data as $string):?>
 
-        <div class="coments">
+        <div class="coments" id="remove_<?php echo $string->id; ?>">
             <div class="coments-single">
                 <div class="coments-avtor">
                     <img src="img/<?php echo $string->img; ?>" alt="">
@@ -83,10 +83,10 @@
                     </p>
                     <p><?php echo $string->text; ?>
                     </p>
-                    <!--<form action="" method="post">
-                        <input type="hidden" name="comentdelete" value="<?php //echo $string->id; ?>">
+                    <form action="" method="post">
+                        <input type="hidden" name="comentdelete" value="<?php echo $string->id; ?>">
                         <button class="comentdelete">Удалить</button>
-                    </form>-->
+                    </form>
                 </div>
             </div>
         </div>

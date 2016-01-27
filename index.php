@@ -132,7 +132,9 @@
 					//alert('go')
 				},
 			}).done(function () {
-				//alert('done');
+				var id = '#remove_' + comentdelete;
+				$(id).remove();
+				alert('done');
 			});
 		});
 	});
@@ -240,9 +242,7 @@
 			tl.to(footer2, 2, {opacity:1, backgroundColor:"#252525"},'-=1')
 	});
 </script>
-<script src="js/CSSPlugin.min.js"></script>
-<script src="js/TweenMax.min.js"></script>
-<script src="js/TimelineMax.min.js"></script>
+
 
 </body>
 </html>
