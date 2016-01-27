@@ -25,7 +25,6 @@ class Team
         $this->position = $position;
         $this->description = $description;
         $this->foto = $foto;
-        $dbh = new Connection();
         $sql = "INSERT INTO team (name, position, about, foto) VALUES ('" . $name . "','" . $position . "','" . $description . "','" . $foto . "')";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();

@@ -27,7 +27,6 @@ class Portfolio
         $this->title = $title;
         $this->img = $img;
         $this->description = $description;
-        $dbh = new Connection();
         $sql = "INSERT INTO portfolio (title, img, description) VALUES ('" . $title . "','" . $img . "','" . $description . "')";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
