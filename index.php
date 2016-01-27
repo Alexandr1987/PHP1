@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/style_blog.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css" />
-
+<script>window.jQuery || document.write('<script src="js/jquery-1.8.min.js">\x3C/script>')</script>
 <?php require __DIR__.'/autoload.php'; ?>
 
 </head>
@@ -88,9 +88,55 @@
 </div>
 
 <!-- jQuery -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
 
+
+<script>
+	$( document ).ready(function() {
+		$('#submit').on('click', function (event) {
+			event.preventDefault();
+			var name = $('input[name=name]').val();
+			var mail = $('input[name=mail]').val();
+			var text = $('textarea[name=text]').val();
+			$.ajax({
+				url: 'controler/response.php',
+				method: 'POST',
+				data: {
+					name: name,
+					mail: mail,
+					text: text,
+				},
+				beforeSend: function () {
+					//alert('go')
+				},
+
+			}).done(function (data) {
+				var resp = JSON.parse(data);
+				$('<div class="coments"><div class="coments-single"><div class="coments-avtor"><img src="img/" alt=""><p><a href="#">' + resp.name + '</a></p></div><div class="coment-text"> <div class="coment-bg"></div><p class="coment-head"><span class="coment-date">' + resp.data + '</span><span class="coment-replay"><a href="#">Reply</a></span></p><p>' + resp.text + '</p></div></div></div>').appendTo('.in_coments-main');
+				//alert('done');
+			});
+		});
+	});
+</script>
+<script>
+	$( document ).ready(function() {
+		$('.comentdelete').on('click', function (event) {
+			event.preventDefault();
+			var comentdelete = $('input[name=comentdelete]').val();
+			$.ajax({
+				url: 'controler/responseDelete.php',
+				method: 'POST',
+				data: {
+					comentdelete: comentdelete,
+				},
+				beforeSend: function () {
+					//alert('go')
+				},
+			}).done(function () {
+				//alert('done');
+			});
+		});
+	});
+</script>
 <script type="text/javascript">
 	$(function() {
 		var pull 		= $('#pull');
@@ -194,12 +240,9 @@
 			tl.to(footer2, 2, {opacity:1, backgroundColor:"#252525"},'-=1')
 	});
 </script>
-<script type="text/javascript" src="js/shCore.js"></script>
-<script type="text/javascript" src="js/shBrushXml.js"></script>
-<script type="text/javascript" src="js/shBrushJScript.js"></script>
 <script src="js/CSSPlugin.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/TimelineMax.min.js"></script>
-<script src="js/EasePack.min.js"></script>
+
 </body>
 </html>

@@ -100,7 +100,6 @@
 
                                 <?php $firstAbout = About::findAll();?>
                                 <?php foreach($firstAbout as $value):?>
-                                <br>
                                 <?php echo $value->text;?><br>
                                 <?php echo $value->content;?><br>
                                     <form role="form" method="post" action="admin/controler/AboutUpdate.php">
@@ -114,7 +113,6 @@
                                 <?php endforeach;?>
                             </div>
                             <div>
-
                                 <?php $works= Portfolio::findAll();?>
                                 <?php foreach($works as $value):?>
                                 <div class="in_portfolio_content in_portfolio_content<?php echo $value->id; ?>" style="width:200px;float:left;margin:8px;">
@@ -139,9 +137,7 @@
                                         </div>
                                         <button type="submit" class="btn btn-default">Обновить</button>
                                         <a href="/admin/controler/PortfolioDelit.php?delid=<?php echo $value->id;?>"><button type="button" class="btn btn-default">Удалить</button></a>
-
                                     </form>
-
                                 </div>
 
                                 <?php endforeach;?>

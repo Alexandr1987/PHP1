@@ -18,11 +18,12 @@ class Contact
     }
 
 
-    public function insert($title,$text,$avtor){
-        $this->title = $title;
+    public function insert($data,$name,$text,$mail){
+        $this->data = $data;
         $this->text = $text;
-        $this->avtor = $avtor;
-        $sql = "INSERT INTO contact(title, text, autor) VALUES ('" . $title . "','" . $text . "','" . $avtor . "')";
+        $this->name = $name;
+        $this->mail = $mail;
+        $sql = "INSERT INTO contact(data, name, text, mail) VALUES ('" . $data . "','" . $name . "','" . $text . "','".$mail."')";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
 

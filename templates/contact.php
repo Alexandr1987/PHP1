@@ -83,6 +83,10 @@
                     </p>
                     <p><?php echo $string->text; ?>
                     </p>
+                    <!--<form action="" method="post">
+                        <input type="hidden" name="comentdelete" value="<?php //echo $string->id; ?>">
+                        <button class="comentdelete">Удалить</button>
+                    </form>-->
                 </div>
             </div>
         </div>
@@ -97,15 +101,26 @@
     <div class="main_in_form">
         <h2>Add a comment</h2>
         <div class="coment">
-            <form class="coment-form">
-                <input class="ctext" type="text" placeholder="Name*">
-                <input class="cmail" type="mail" placeholder="Email*">
+            <form class="coment-form" id="form" method="POST">
+                <input name="name" class="ctext" type="text" placeholder="Name*">
+                <input name="mail" class="cmail" type="email" placeholder="Email*">
                 <br>
-                <textarea class="carea" type="textarea" placeholder="Your Coment"></textarea>
+                <textarea name="text" class="carea" type="textarea" placeholder="Your Coment"></textarea>
                 <br>
-                <input type="submit" class="csubmit">
+                <button id="submit" class="join">Отрпавить</button>
             </form>
+
         </div>
     </div>
 </div>
 <div class="clear"></div>
+<script>
+    $(document).ready(function() {
+
+        var footer1 = $('.footer1');
+        var footer2 = $('.footer2');
+        var tl = new TimelineMax();
+            tl.to(footer1, 2, {opacity:1, left:0, backgroundColor:"#24292b"}),
+            tl.to(footer2, 2, {opacity:1, backgroundColor:"#252525"},'-=1')
+    });
+</script>
