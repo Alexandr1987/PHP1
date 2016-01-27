@@ -30,7 +30,7 @@
 	<div class="clear"></div>
 
 
-				<?php $view = new View(); ?>
+				<?php $view = new App\View(); ?>
 
 				<?php if($_GET['id']=='index' || $_GET['id']==''):?>
 					<?php $data = About::findAll(); ?>

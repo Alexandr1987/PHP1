@@ -1,5 +1,6 @@
 <?php
 
+namespace App;
 
 class View
 
@@ -7,14 +8,14 @@ class View
 
     protected $data = [];
     protected $team = [];
-    protected $allportfolio = [];
+
     public function assign($name,$value){
         $this->data[$name] = $value;
         return $this->data;
 
     }
 
-    public function display($template,$data='',$team='',$allportfolio=''){
+    public function display($template,$data='',$team=''){
 
 
         include __DIR__.'/../templates/'.$template;
