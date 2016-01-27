@@ -26,8 +26,10 @@
 <div class="clear"></div>
 
 <div class="portfolio_content">
+    <?php $counter=0;?>
     <?php foreach ($data as $value):?>
-    <div class="in_portfolio_content in_portfolio_content<?php echo $value->id; ?>">
+    <?php ++$counter;?>
+    <div class="in_portfolio_content in_portfolio_content<?php echo $counter; ?>">
         <a href="#">
             <div class="wrap_img_portfolio">
                 <div class="wrap_img_bg">
